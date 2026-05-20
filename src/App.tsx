@@ -7,6 +7,7 @@ import {
   Pencil,
   Tags,
   Trash2,
+  Search,
 } from "lucide-react";
 import "./App.css";
 import type { Doc } from "./types/doc";
@@ -47,11 +48,11 @@ function App() {
   }, [docs]);
 
   const filteredDocs = useMemo(() => {
+    const q = searchQuery.toLowerCase().trim();
     return docs.filter((doc) => {
-      const name = doc.name || "";
-      const matchesSearch = name
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase());
+      const name = (doc.name || "").toLowerCase();
+      const content = (doc.content || "").toLowerCase();
+      const matchesSearch = !q || name.includes(q) || content.includes(q);
       const matchesTag = activeTag ? doc.tags.includes(activeTag) : true;
       return matchesSearch && matchesTag;
     });
@@ -149,9 +150,10 @@ function App() {
         </div>
 
         <div className="search-bar">
+          <Search size={14} className="search-icon" />
           <input
             type="text"
-            placeholder="搜索文档名称..."
+            placeholder="搜索名称或内容..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
