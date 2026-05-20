@@ -1,4 +1,13 @@
 import { useState, useEffect, useMemo } from "react";
+import {
+  Upload,
+  FolderOpen,
+  Calendar,
+  FileText,
+  Pencil,
+  Tags,
+  Trash2,
+} from "lucide-react";
 import "./App.css";
 import type { Doc } from "./types/doc";
 import { getAllDocs, putDoc, deleteDoc } from "./services/db";
@@ -150,7 +159,8 @@ function App() {
 
         <div className="header-actions">
           <label className="upload-btn">
-            ↑ 上传 HTML
+            <Upload size={14} />
+            上传 HTML
             <input
               type="file"
               accept=".html,.htm"
@@ -183,7 +193,7 @@ function App() {
       <main className="document-grid">
         {filteredDocs.length === 0 ? (
           <div className="empty-state">
-            <div className="empty-icon">📂</div>
+            <FolderOpen size={48} className="empty-icon" />
             <p>
               {docs.length === 0
                 ? "还没有文档，点击「上传 HTML」开始"
@@ -206,9 +216,12 @@ function App() {
                 </h3>
                 <div className="doc-meta">
                   <span>
-                    📅 {new Date(doc.uploadedAt).toLocaleDateString()}
+                    <Calendar size={14} />{" "}
+                    {new Date(doc.uploadedAt).toLocaleDateString()}
                   </span>
-                  <span>⚖️ {(doc.size / 1024).toFixed(1)} KB</span>
+                  <span>
+                    <FileText size={14} /> {(doc.size / 1024).toFixed(1)} KB
+                  </span>
                 </div>
                 <div className="doc-tags">
                   {doc.tags.map((tag) => (
@@ -232,7 +245,7 @@ function App() {
                   }}
                   title="重命名"
                 >
-                  ✏️
+                  <Pencil size={14} />
                 </button>
                 <button
                   className="action-btn"
@@ -242,14 +255,14 @@ function App() {
                   }}
                   title="管理标签"
                 >
-                  🏷️
+                  <Tags size={14} />
                 </button>
                 <button
                   className="action-btn delete"
                   onClick={() => handleDelete(doc.uuid)}
                   title="删除"
                 >
-                  🗑️
+                  <Trash2 size={14} />
                 </button>
               </div>
             </div>

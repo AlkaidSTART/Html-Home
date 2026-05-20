@@ -47,6 +47,9 @@
 }
 
 .upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: var(--accent);
   color: white;
   padding: 8px 16px;
@@ -148,10 +151,16 @@
 
 .doc-meta {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   font-size: 11px;
   color: var(--text-sub);
   margin-bottom: 8px;
+}
+
+.doc-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .doc-tags {
@@ -198,7 +207,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
   transition: all 0.2s;
 }
 
@@ -215,9 +223,10 @@
 }
 
 .empty-icon {
-  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  opacity: 0.4;
   margin-bottom: 16px;
-  opacity: 0.5;
 }
 
 .loading {
@@ -299,7 +308,8 @@
   gap: 12px;
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
   padding: 8px 16px;
   border-radius: 8px;
   font-size: 13px;
@@ -318,7 +328,8 @@
   color: var(--text-main);
 }
 
-.btn-primary:hover, .btn-secondary:hover {
+.btn-primary:hover,
+.btn-secondary:hover {
   opacity: 0.8;
 }
 
@@ -367,11 +378,35 @@
 }
 
 /* Tag Color Palette */
-.tag-pill:nth-child(8n+1) { background: #e8f0fe; color: #1a73e8; }
-.tag-pill:nth-child(8n+2) { background: #e6f4ea; color: #137333; }
-.tag-pill:nth-child(8n+3) { background: #fff8e1; color: #e37400; }
-.tag-pill:nth-child(8n+4) { background: #fce4ec; color: #c62828; }
-.tag-pill:nth-child(8n+5) { background: #e8eaf6; color: #3949ab; }
-.tag-pill:nth-child(8n+6) { background: #e0f2f1; color: #00695c; }
-.tag-pill:nth-child(8n+7) { background: #f3e5f5; color: #7b1fa2; }
-.tag-pill:nth-child(8n+8) { background: #fbe9e7; color: #bf360c; }
+.tag-pill:nth-child(8n + 1) {
+  background: #e8f0fe;
+  color: #1a73e8;
+}
+.tag-pill:nth-child(8n + 2) {
+  background: #e6f4ea;
+  color: #137333;
+}
+.tag-pill:nth-child(8n + 3) {
+  background: #fff8e1;
+  color: #e37400;
+}
+.tag-pill:nth-child(8n + 4) {
+  background: #fce4ec;
+  color: #c62828;
+}
+.tag-pill:nth-child(8n + 5) {
+  background: #e8eaf6;
+  color: #3949ab;
+}
+.tag-pill:nth-child(8n + 6) {
+  background: #e0f2f1;
+  color: #00695c;
+}
+.tag-pill:nth-child(8n + 7) {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+.tag-pill:nth-child(8n + 8) {
+  background: #fbe9e7;
+  color: #bf360c;
+}
